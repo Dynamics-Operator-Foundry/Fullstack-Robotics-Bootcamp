@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Define the revolute joint -->
+  <joint name="joint2" type="revolute">
+    <parent link="link1"/>  <!-- Parent link is link1 -->
+    <child link="link2"/>   <!-- Child link is link2 -->
+    
+    <!-- Joint Origin -->
+    <origin xyz="0 0 0.25" rpy="0 0 0"/> <!-- Position along Y axis of link1 -->
+    
+    <!-- Axis of Rotation: Y-axis -->
+    <axis xyz="0 1 0"/>  <!-- Revolving around Y-axis -->
+    
+    <!-- Joint Limits -->
+    <limit lower="-1.57" upper="1.57" effort="5" velocity="1"/>
+  </joint>
+
+
+  <transmission name="joint2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint2_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+</robot>

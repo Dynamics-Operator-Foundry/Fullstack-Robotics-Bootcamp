@@ -1,0 +1,12 @@
+<launch>
+
+
+  <!-- Load Controllers -->
+  <rosparam file="$(find army_description)/launch/config/controller.yaml" command="load"/>
+
+  <!-- Spawn Effort Controller -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="arm_joint_effort_controller" />
+
+  <!-- Robot State Publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+</launch>
