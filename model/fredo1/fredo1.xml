@@ -1,0 +1,112 @@
+<mujoco model="fredo1">
+    <default>
+        <!-- convert the Fusion 360 coordinate system to MuJoCo -->
+        <geom type="mesh" xyaxes="1 0 0 0 0 1"/>
+    </default>
+    
+    <asset>
+        <!-- Fusion outputs meshes with mm units by default, but must be converted to m in MuJoCo, hence the scaling -->
+        <mesh name="base" file="all_files/base.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1a" file="all_files/servo1a.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1b" file="all_files/servo1b.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1c" file="all_files/servo1c.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1d" file="all_files/servo1d.stl" scale="0.001 0.001 0.001"/>
+        
+        <mesh name="servoarm1" file="all_files/servoarm1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="arm1" file="all_files/arm1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="rod1" file="all_files/rod1.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="servo2a" file="all_files/servo2a.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2b" file="all_files/servo2b.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2c" file="all_files/servo2c.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2d" file="all_files/servo2d.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="servoarm2" file="all_files/servoarm2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="arm2" file="all_files/arm2.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="plate" file="all_files/plate.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="rod2" file="all_files/rod2.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="servo3a" file="all_files/servo3a.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3b" file="all_files/servo3b.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3c" file="all_files/servo3c.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3d" file="all_files/servo3d.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="servoarm3" file="all_files/servoarm3.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="arm3" file="all_files/arm3.stl" scale="0.001 0.001 0.001"/>
+
+        <mesh name="tip" file="all_files/tip.stl" scale="0.001 0.001 0.001"/>
+    </asset>
+    <worldbody>
+        <body name="base">
+            <geom mesh="base"/>
+            <body name="servo1b">
+                <geom mesh="servo1b"/>
+                <body name="servo1c">
+                    <geom mesh="servo1c"/>
+                    <body name="servo1d">
+                        <geom mesh="servo1d"/>
+                        <body name="servo1a">
+                            <geom mesh="servo1a"/>
+                            <joint name="joint_1" pos="0.00 0 0" axis="0 0 1" limited="true" range="-45 45"/>
+                            <body name="servoarm1">
+                                <geom mesh="servoarm1"/>
+                                <body name="arm1">
+                                    <geom mesh="arm1"/>
+                                    <body name="rod1">
+                                        <geom mesh="rod1"/>
+                                    </body>
+                                    <body name="servo2b">
+                                        <geom mesh="servo2b"/>
+                                        <body name="servo2c">
+                                            <geom mesh="servo2c"/>
+                                            <body name="servo2d">
+                                                <geom mesh="servo2d"/>    
+                                                <body name="servo2a">
+                                                    <geom mesh="servo2a"/>      
+                                                    <body name="servoarm2">
+                                                        <geom mesh="servoarm2"/>
+                                                        <body name="arm2">
+                                                            <geom mesh="arm2"/>       
+                                                            <body name="plate">
+                                                                <geom mesh="plate"/>    
+                                                                <body name="rod2">
+                                                                    <geom mesh="rod2"/>                                    
+                                                                </body>   
+                                                                <body name="servo3b">
+                                                                    <geom mesh="servo3b"/>    
+                                                                    <body name="servo3c">
+                                                                        <geom mesh="servo3c"/>    
+                                                                        <body name="servo3d">
+                                                                            <geom mesh="servo3d"/>      
+                                                                            <body name="servo3a">
+                                                                                <geom mesh="servo3a"/> 
+                                                                                <body name="servoarm3">
+                                                                                    <geom mesh="servoarm3"/>       
+                                                                                    <body name="arm3">
+                                                                                        <geom mesh="arm3"/>      
+                                                                                        <body name="tip">
+                                                                                            <geom mesh="tip"/>                                    
+                                                                                        </body>                               
+                                                                                    </body>                               
+                                                                                </body>                                    
+                                                                            </body>                                 
+                                                                        </body>                                   
+                                                                    </body>                                 
+                                                                </body>                                   
+                                                            </body>                              
+                                                        </body>                                
+                                                    </body>                                
+                                                </body>                                
+                                            </body>
+                                        </body>                                        
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>
