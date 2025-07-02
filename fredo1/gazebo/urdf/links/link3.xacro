@@ -22,6 +22,41 @@
     </collision>
 
 
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01214 0.08073 -0.19022" rpy="1.5708 0 0"/>
+      <!-- 0.01214 0.08073 -0.19022 -->
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/d_thirdarm.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01214 0.08073 -0.19022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/d_thirdarm.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01214 0.08073 -0.19022" rpy="1.5708 0 0"/>
+      <!-- 0.01214 0.08073 -0.19022 -->
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/d_tippoint.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01214 0.08073 -0.19022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/d_tippoint.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+
 
     <!-- Inertial -->
     <inertial>
