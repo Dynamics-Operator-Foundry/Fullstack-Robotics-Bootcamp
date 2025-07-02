@@ -4,5 +4,16 @@
     <parent link="world"/>
     <child link="base_link"/>
     <origin xyz="0 0 0.01" rpy="0 0 0"/>
+    <limit effort="10" velocity="1.0" lower="0" upper="0"/>
   </joint>
+
+  <!-- <transmission name="joint0_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint0">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="joint0_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
 </robot>

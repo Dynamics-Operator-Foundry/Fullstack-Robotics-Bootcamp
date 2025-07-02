@@ -1,10 +1,16 @@
+joint_state_controller:                 # <-- NEW
+  type: joint_state_controller/JointStateController
+  publish_rate: 50                      # Hz
+
 arm_joint_effort_controller:
   type: effort_controllers/JointGroupEffortController
   joints:
+    # - joint0
     - joint1
     - joint2
     - joint3
   gains:
+    # joint0: {p: 100.0, i: 0.01, d: 10.0}
     joint1: {p: 100.0, i: 0.01, d: 10.0}
     joint2: {p: 100.0, i: 0.01, d: 10.0}
     joint3: {p: 100.0, i: 0.01, d: 10.0}

@@ -1,0 +1,14 @@
+<launch>
+    <!-- Load robot description -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find fredo1_robot)/urdf/fredo1.xacro"/>
+
+    <!-- Publish joint states (manually, unless you have a controller) -->
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
+
+    <!-- Publish static TFs -->
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
+
+    <!-- Start RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fredo1_robot)/config/fredo1.rviz" required="true"/>
+
+</launch>

@@ -1,10 +1,12 @@
 <launch>
-  <!-- Load Controllers -->
   <rosparam file="$(find fredo1_robot)/config/controller.yaml" command="load"/>
 
-  <!-- Spawn Effort Controller -->
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="arm_joint_effort_controller" />
+  <!-- spawn Controllers (joint state + effort) -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="joint_state_controller arm_joint_effort_controller"
+        output="screen"/>
 
-  <!-- Robot State Publisher -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+  <!-- Robot State Publisher (publishes TFs from joint states) -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher" output="screen"/>
 </launch>
