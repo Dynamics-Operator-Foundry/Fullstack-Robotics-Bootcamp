@@ -11,8 +11,8 @@ Again, fundamentals in those aspects are grossly omitted; for those who have som
 
 1. 3D modelling: [here](./fredo1/cad/README.md)
 2. Numerical Simulation
-    - Gazebo + ROS1: [Fredo1](./fredo1/gazebo/) & [Dummy](./dummy/gazebo/README.md)
-    - Mujoco: [Fredo1](./fredo1/mujoco/) & [Dummy](./dummy/mujoco/README.md)
+    - Gazebo + ROS1: [Fredo1](./fredo1/gazebo/README.md) & [Dummy](./dummy/gazebo/README.md)
+    - Mujoco: [Fredo1](./fredo1/mujoco/README.md) & [Dummy](./dummy/mujoco/README.md)
 
     ---------- below under development... ----------
 
