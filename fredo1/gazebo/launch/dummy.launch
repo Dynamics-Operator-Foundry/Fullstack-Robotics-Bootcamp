@@ -1,4 +1,0 @@
-<launch>
-  <include file="$(find fredo1_robot)/launch/dummy_gazebo.launch" />
-  <include file="$(find fredo1_robot)/launch/dummy_ctrl.launch" />
-</launch>

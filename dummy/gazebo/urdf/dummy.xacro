@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="army">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="dummy">
 
   <!-- Load materials -->
   <xacro:include filename="$(find dummy_robot)/urdf/materials.xacro"/>
@@ -18,7 +18,7 @@
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <!-- <robotNamespace>/army</robotNamespace> -->
+      <!-- <robotNamespace>/dummy</robotNamespace> -->
     </plugin>
   </gazebo>
 
