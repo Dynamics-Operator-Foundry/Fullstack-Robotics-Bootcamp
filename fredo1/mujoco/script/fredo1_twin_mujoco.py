@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # load model here
-model = mujoco.MjModel.from_xml_path("../model/fredo1/mujoco/fredo1.xml")
+model = mujoco.MjModel.from_xml_path("../fredo1.xml")
 data = mujoco.MjData(model)
 
 # viz here
@@ -17,10 +17,10 @@ def set_joint_angles(data, angles, joint_names=["joint_1", "joint_2", "joint_3"]
 
 # viewer here
 with mujoco.viewer.launch_passive(model, data) as viewer:
-    viewer.cam.lookat[:] = np.array([0.04, 0, 0.06])     # Look at origin
-    viewer.cam.distance = 0.64                       # Distance from origin
-    viewer.cam.azimuth = 60                        # Rotate around y-axis (horizontal)
-    viewer.cam.elevation = -25                      # Tilt down 30 degrees
+    viewer.cam.lookat[:] = np.array([0.04, 0, 0.06])     
+    viewer.cam.distance = 0.64                       
+    viewer.cam.azimuth = 60                        
+    viewer.cam.elevation = -25                      
     
     while viewer.is_running():
         t = time.time()
@@ -28,4 +28,4 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         set_joint_angles(data, angles)
 
         viewer.sync()
-        time.sleep(0.01)  # Control the refresh rate
+        time.sleep(0.01)  
