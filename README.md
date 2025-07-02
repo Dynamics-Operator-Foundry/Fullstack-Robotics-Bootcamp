@@ -3,8 +3,8 @@
 ## Introduction
 This is a learning bootcamp for fullstack robotics development. The term "fullstack" here mainly refers the process from robot conceptualizing to 3D modelling, to numerical simulation, to firmware embedding and to final controller design. Here, we 
 - homemade a 3-DOF manipulator with servos (FOC motor TBD) from scratch, 
-- maintained a digital twin in mujoco/gazebo/bullet,
-- did simulations with those platform,
+- did simulations in mujoco/gazebo/bullet,
+- maintained a digital twin with those platform,
 - played with some fancy data-driven controllers.
 
 Again, fundamentals in those aspects are grossly omitted; for those who have some basic knowledge, you are in the right place. In which, we have several components:
