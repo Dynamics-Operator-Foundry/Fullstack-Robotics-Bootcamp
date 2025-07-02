@@ -1,39 +1,39 @@
 <mujoco model="fredo1">
-    <compiler angle="degree"/>  <!-- use radians to define angles -->
+    <compiler angle="degree" meshdir="../cad/all_files"/>
     <default>
         <geom type="mesh" xyaxes="1 0 0 0 0 1"/>
     </default>
     
     <asset>
-        <mesh name="base" file="all_files/a_base.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo1a" file="all_files/a_servo_1.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo1b" file="all_files/a_servo_2.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo1c" file="all_files/a_servo_3.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="base" file="a_base.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1a" file="a_servo_1.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1b" file="a_servo_2.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1c" file="a_servo_3.STL" scale="0.001 0.001 0.001"/>
 
-        <mesh name="servo1d" file="all_files/a_servo_4.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servoarm1" file="all_files/b_servoarm.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo1d" file="a_servo_4.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servoarm1" file="b_servoarm.STL" scale="0.001 0.001 0.001"/>
 
-        <mesh name="arm1" file="all_files/b_firstarm.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo2a" file="all_files/b_servo_1.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo2b" file="all_files/b_servo_2.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo2c" file="all_files/b_servo_3.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="rod1" file="all_files/b_rod.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="arm1" file="b_firstarm.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2a" file="b_servo_1.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2b" file="b_servo_2.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2c" file="b_servo_3.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="rod1" file="b_rod.STL" scale="0.001 0.001 0.001"/>
 
-        <mesh name="servo2d" file="all_files/b_servo_4.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servoarm2" file="all_files/c_servoarm.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo2d" file="b_servo_4.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servoarm2" file="c_servoarm.STL" scale="0.001 0.001 0.001"/>
 
-        <mesh name="arm2" file="all_files/c_secondarm.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo3a" file="all_files/c_servo_1.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo3b" file="all_files/c_servo_2.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo3c" file="all_files/c_servo_3.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servoplate" file="all_files/c_servoplate.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="rod2" file="all_files/c_rod.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="arm2" file="c_secondarm.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3a" file="c_servo_1.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3b" file="c_servo_2.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3c" file="c_servo_3.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servoplate" file="c_servoplate.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="rod2" file="c_rod.STL" scale="0.001 0.001 0.001"/>
 
-        <mesh name="servo3d" file="all_files/c_servo_4.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servoarm3" file="all_files/d_servoarm.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servo3d" file="c_servo_4.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="servoarm3" file="d_servoarm.STL" scale="0.001 0.001 0.001"/>
         
-        <mesh name="arm3" file="all_files/d_thirdarm.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="tippoint" file="all_files/d_tippoint.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="arm3" file="d_thirdarm.STL" scale="0.001 0.001 0.001"/>
+        <mesh name="tippoint" file="d_tippoint.STL" scale="0.001 0.001 0.001"/>
     </asset>
     
     <worldbody>
