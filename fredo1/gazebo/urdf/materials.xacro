@@ -9,4 +9,8 @@
   <material name="Green">
     <color rgba="0 1 0 1"/>
   </material>
+
+  <material name="Gray">
+    <color rgba="1.0 1.0 1.0 1"/>
+  </material>
 </robot>

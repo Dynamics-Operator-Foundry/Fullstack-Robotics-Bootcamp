@@ -2,19 +2,120 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <link name="link1">
     
-    
+    <!-- Visual -->
     <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servoarm.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
-    
-    
+
+    <!-- Collision -->
     <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servoarm.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_firstarm.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_firstarm.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_3.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_3.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_rod.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_rod.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/b_servo_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    
 
 
     <inertial>

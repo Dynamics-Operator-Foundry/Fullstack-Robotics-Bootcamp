@@ -3,26 +3,141 @@
 
   <!-- Define link2 -->
   <link name="link2">
+    
     <!-- Visual -->
     <visual>
-      <origin xyz="0 0 0.25" rpy="0 0 0"/>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servoarm.STL" scale="0.001 0.001 0.001"/>
       </geometry>
-      <material name="Green"/>
     </visual>
 
     <!-- Collision -->
     <collision>
-      <origin xyz="0 0 0.25" rpy="0 0 0"/>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
       <geometry>
-        <cylinder length="0.5" radius="0.05"/>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servoarm.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_secondarm.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_secondarm.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_3.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_3.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servoplate.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servoplate.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_rod.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_rod.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0.01074 0.07031 -0.09422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/c_servo_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+
+
     <!-- Inertial -->
     <inertial>
-      <mass value="1.0"/>
+      <mass value="0.01"/>
       <inertia ixx="0.005" ixy="0.0" ixz="0.0"
                iyy="0.005" iyz="0.0"
                izz="0.005"/>

@@ -2,12 +2,12 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Define the revolute joint -->
-  <joint name="joint2" type="revolute">
-    <parent link="link1"/>  <!-- Parent link is link1 -->
-    <child link="link2"/>   <!-- Child link is link2 -->
+  <joint name="joint3" type="revolute">
+    <parent link="link2"/>  <!-- Parent link is link1 -->
+    <child link="link3"/>   <!-- Child link is link2 -->
     
     <!-- Joint Origin -->
-    <origin xyz="-0.0299 -0.0105 0.0335" rpy="0 0 0"/> <!-- Position along Y axis of link1 -->
+    <origin xyz="0.0014 -0.01042 0.096" rpy="0 0 0"/> <!-- Position along Y axis of link1 -->
     
     <!-- Axis of Rotation: Y-axis -->
     <axis xyz="1 0 0"/>  <!-- Revolving around Y-axis -->
@@ -17,12 +17,12 @@
   </joint>
 
 
-  <transmission name="joint2_trans">
+  <transmission name="joint3_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint2">
+    <joint name="joint3">
       <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="joint2_motor">
+    <actuator name="joint3_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>

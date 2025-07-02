@@ -1,4 +1,4 @@
 <launch>
   <include file="$(find fredo1_robot)/launch/fredo1_gazebo.launch" />
-  <include file="$(find fredo1_robot)/launch/fredo1_ctrl.launch" />
+  <!-- <include file="$(find fredo1_robot)/launch/fredo1_ctrl.launch" /> -->
 </launch>

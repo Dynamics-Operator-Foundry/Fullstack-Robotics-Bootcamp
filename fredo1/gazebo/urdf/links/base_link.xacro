@@ -1,24 +1,84 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- Define the Dummy World Link -->
+  <!-- Define the fredo1 World Link -->
   <link name="world"/>
 
   <!-- Base Link -->
   <link name="base_link">
     <!-- Visual -->
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.1"/>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_base.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
 
     <!-- Collision -->
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.1"/>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_base.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_1.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_2.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_3.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_3.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_4.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="package://fredo1_robot/../cad/all_files/a_servo_4.STL" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
 
@@ -30,8 +90,6 @@
               iyy="0.135" iyz="0.0"
               izz="0.075"/>
     </inertial>
-
-
   </link>
 
   <physics type="ode">
@@ -43,7 +101,7 @@
 
   <!-- GAZEBO-specific Color -->
   <gazebo reference="base_link">
-    <material>Gazebo/Red</material>
+    <material>Gazebo/Gray</material>
     <static>false</static>
   </gazebo>
 
