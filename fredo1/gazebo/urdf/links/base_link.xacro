@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Define the Dummy World Link -->
+  <link name="world"/>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <!-- Visual -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3 0.3 0.1"/>
+      </geometry>
+    </visual>
+
+    <!-- Collision -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3 0.3 0.1"/>
+      </geometry>
+    </collision>
+
+    <!-- Inertial -->
+    <inertial>
+      <mass value="9.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.075" ixy="0.0" ixz="0.0"
+              iyy="0.135" iyz="0.0"
+              izz="0.075"/>
+    </inertial>
+
+
+  </link>
+
+  <physics type="ode">
+    <max_step_size>0.01</max_step_size>
+    <real_time_update_rate>200</real_time_update_rate>
+    <gravity>0 0 -9.81</gravity>
+  </physics>
+
+
+  <!-- GAZEBO-specific Color -->
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+    <static>false</static>
+  </gazebo>
+
+</robot>

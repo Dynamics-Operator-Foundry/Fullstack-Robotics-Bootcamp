@@ -4,7 +4,7 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find army_description)/urdf/army.xacro"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find dummy_robot)/urdf/army.xacro"/>
 
   <!-- Spawn robot in Gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"

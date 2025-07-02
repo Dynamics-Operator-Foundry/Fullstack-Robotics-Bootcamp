@@ -1,0 +1,4 @@
+<launch>
+  <include file="dummy_ctrl.launch" />
+  <include file="dummy_gazebo.launch" />
+</launch>

@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # load model here
-model = mujoco.MjModel.from_xml_path("fredo1.xml")
+model = mujoco.MjModel.from_xml_path("../model/fredo1/mujoco/fredo1.xml")
 data = mujoco.MjData(model)
 
 # viz here
