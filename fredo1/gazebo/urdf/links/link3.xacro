@@ -25,14 +25,14 @@
 
     <!-- Inertial -->
     <inertial>
-      <mass value="0.00100001"/>
-      <inertia ixx="0.00" ixy="0.0" ixz="0.0"
-               iyy="0.00" iyz="0.0"
-               izz="0.00"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0"
+               iyy="0.005" iyz="0.0"
+               izz="0.005"/>
     </inertial>
   </link>
 
-  <gazebo reference="link1">
+  <gazebo reference="link3">
     <material>Gazebo/Red</material>
   </gazebo>
 

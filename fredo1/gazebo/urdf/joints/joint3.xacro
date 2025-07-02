@@ -7,7 +7,7 @@
     <child link="link3"/>   <!-- Child link is link2 -->
     
     <!-- Joint Origin -->
-    <origin xyz="0.0014 -0.01042 0.096" rpy="0 0 0"/> <!-- Position along Y axis of link1 -->
+    <origin xyz="-0.0014 -0.01042 0.096" rpy="0 0 0"/> <!-- Position along Y axis of link1 -->
     
     <!-- Axis of Rotation: Y-axis -->
     <axis xyz="1 0 0"/>  <!-- Revolving around Y-axis -->

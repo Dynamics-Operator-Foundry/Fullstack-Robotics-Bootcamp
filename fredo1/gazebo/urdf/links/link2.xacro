@@ -137,7 +137,7 @@
 
     <!-- Inertial -->
     <inertial>
-      <mass value="0.01"/>
+      <mass value="0.1"/>
       <inertia ixx="0.005" ixy="0.0" ixz="0.0"
                iyy="0.005" iyz="0.0"
                izz="0.005"/>
