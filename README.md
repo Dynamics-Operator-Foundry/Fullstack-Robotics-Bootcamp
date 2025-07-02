@@ -9,15 +9,15 @@ This is a learning bootcamp for fullstack robotics development. The term "fullst
 
 Again, fundamentals in those aspects are grossly omitted; for those who have some basic knowledge, you are in the right place. In which, we have several components:
 
-1. 3D modelling: [here](./fredo1/cad/README.md)
+1. 3D modelling: [here](./fredo1/cad)
 2. Numerical Simulation
-    - Gazebo + ROS1: [Fredo1](./fredo1/gazebo/README.md) & [Dummy](./dummy/gazebo/README.md)
-    - Mujoco: [Fredo1](./fredo1/mujoco/README.md) & [Dummy](./dummy/mujoco/README.md)
+    - Gazebo + ROS1: [Fredo1](./fredo1/gazebo) & [Dummy](./dummy/gazebo)
+    - Mujoco: [Fredo1](./fredo1/mujoco) & [Dummy](./dummy/mujoco)
 
     ---------- below under development... ----------
 
-    - Pybullet: [Fredo1](./fredo1/pybullet/) & [Dummy](./dummy/pybullet/README.md)
-3. Embedding with Arduino: [here](./fredo1/firmware/README.md)
+    - Pybullet: [Fredo1](./fredo1/pybullet/) & [Dummy](./dummy/pybullet)
+3. Embedding with Arduino: [here](./fredo1/firmware)
 4. Digital Twinning (kinda):
     - Gazebo + ROS1: [Fredo1](./fredo1/gazebo/) & [Dummy](./dummy/gazebo/)
     - Mujoco: [Fredo1](./fredo1/mujoco/) & [Dummy](./dummy/mujoco/)
