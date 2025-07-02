@@ -1,11 +1,9 @@
 <mujoco model="fredo1">
     <default>
-        <!-- convert the Fusion 360 coordinate system to MuJoCo -->
         <geom type="mesh" xyaxes="1 0 0 0 0 1"/>
     </default>
     
     <asset>
-        <!-- Fusion outputs meshes with mm units by default, but must be converted to m in MuJoCo, hence the scaling -->
         <mesh name="base" file="all_files/a_base.STL" scale="0.001 0.001 0.001"/>
         <mesh name="servo1a" file="all_files/a_servo_1.STL" scale="0.001 0.001 0.001"/>
         <mesh name="servo1b" file="all_files/a_servo_2.STL" scale="0.001 0.001 0.001"/>
@@ -35,50 +33,16 @@
         
         <mesh name="arm3" file="all_files/d_thirdarm.STL" scale="0.001 0.001 0.001"/>
         <mesh name="tippoint" file="all_files/d_tippoint.STL" scale="0.001 0.001 0.001"/>
-        
-        <!-- <mesh name="servoarm1" file="lala.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="arm1" file="all_files/arm1.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="rod1" file="all_files/rod1.STL" scale="0.001 0.001 0.001"/>
-
-        <mesh name="servo2a" file="all_files/servo2a.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo2b" file="all_files/servo2b.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo2c" file="all_files/servo2c.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo2d" file="all_files/servo2d.STL" scale="0.001 0.001 0.001"/>
-
-        <mesh name="servoarm2" file="all_files/servoarm2.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="arm2" file="all_files/arm2.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="plate" file="all_files/plate.STL" scale="0.001 0.001 0.001"/>
-
-        <mesh name="rod2" file="all_files/rod2.STL" scale="0.001 0.001 0.001"/>
-
-        <mesh name="servo3a" file="all_files/servo3a.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo3b" file="all_files/servo3b.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo3c" file="all_files/servo3c.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="servo3d" file="all_files/servo3d.STL" scale="0.001 0.001 0.001"/>
-
-        <mesh name="servoarm3" file="all_files/servoarm3.STL" scale="0.001 0.001 0.001"/>
-        <mesh name="arm3" file="all_files/arm3.STL" scale="0.001 0.001 0.001"/>
-
-        <mesh name="tip" file="all_files/tip.STL" scale="0.001 0.001 0.001"/> -->
     </asset>
     
     <worldbody>
-        <!-- Coordinate origin visual reference -->
-        <geom name="origin_marker" type="sphere" size="0.01" rgba="1 0 0 1" pos="0 0 0"/>
-        
-        <!-- Ground plane -->
 
-        
-        <!-- Coordinate axes as cylinders -->
+        <geom name="origin_marker" type="sphere" size="0.01" rgba="1 0 0 1" pos="0 0 0"/>
+
         <geom name="x_axis" type="cylinder" fromto="0 0 0 0.1 0 0" size="0.002" rgba="1 0 0 1"/>
         <geom name="y_axis" type="cylinder" fromto="0 0 0 0 0.1 0" size="0.002" rgba="0 1 0 1"/>
         <geom name="z_axis" type="cylinder" fromto="0 0 0 0 0 0.1" size="0.002" rgba="0 0 1 1"/>
-        
-        <!-- <body name="servoarm10">
-        	<geom type="mesh" mesh="servoarm1" pos="-0.0 -0.0 -0.00396"/>
-		    <joint name="joint_10" pos="0 0 0" axis="0 0 1" limited="true" range="0 180"/>          		                   
-	    </body> -->
-    
+            
     	<body name="base">
             <geom mesh="base"/>                            
             <body name="servo1a" pos="0 0 0">
