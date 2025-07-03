@@ -1,0 +1,45 @@
+<mujoco model="fredo1">
+
+    <default>
+        <!-- <geom type="mesh" xyaxes="1 0 0 0 0 1"/> -->
+        <geom contype="0" conaffinity="0"/>
+    </default>
+    
+    <asset>
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0 0 0" rgb2="1 1 1" />
+        <material name="grid_mat" texture="grid" texrepeat="10 10" reflectance="0.2" />
+    </asset>
+    
+    <worldbody>
+        <geom name="origin_marker" type="sphere" size="0.01" rgba="1 0 0 1" pos="0 0 0"/>
+        <geom name="ground" type="plane" pos="0 0 0" size="2 2 0.1" material="grid_mat" xyaxes="1 0 0 0 1 0" />
+
+        <geom name="x_axis" type="cylinder" fromto="0 0 0 1 0 0" size="0.002" rgba="1 0 0 1"/>
+        <geom name="y_axis" type="cylinder" fromto="0 0 0 0 1 0" size="0.002" rgba="0 1 0 1"/>
+        <geom name="z_axis" type="cylinder" fromto="0 0 0 0 0 1" size="0.002" rgba="0 0 1 1"/>
+        
+        <body name="base" pos="0 0 0.025">
+            <geom type="box" size="0.15 0.15 0.05"/>
+            <body name="link1" pos="0 0 0.275">
+                <geom type="cylinder" size="0.025 0.25"/>
+                <joint name="joint_1" type="hinge" pos="0 0 0" axis="0 0 1" limited="true" range="-80 180"/> 
+                <body name="link2" pos="0 0 0.495">
+                    <geom type="cylinder" size="0.025 0.25"/>
+                    <joint name="joint_2" type="hinge" pos="0 0 -0.25" axis="0 1 0" limited="true" range="-80 180"/> 
+                </body>
+            </body>
+        </body>    	    	
+    </worldbody>
+    
+    <actuator>
+        <position name="joint_1" ctrllimited="true" kp="1" kv="0.15" joint="joint_1" ctrlrange="-1.57 3.14"/>
+        <position name="joint_2" ctrllimited="true" kp="1" kv="0.15" joint="joint_2" ctrlrange="-1.57 1.57"/>
+        
+    </actuator>
+
+    <contact>
+        <exclude body1="link1" body2="link2"/>
+        <exclude body1="base" body2="link1"/>
+        <exclude body1="base" body2="link2"/>        
+    </contact>
+</mujoco>
