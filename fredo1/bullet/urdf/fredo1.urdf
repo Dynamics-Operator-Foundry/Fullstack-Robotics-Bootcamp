@@ -1,0 +1,361 @@
+<robot name="fredo1">
+  <link name="base">
+    <inertial>
+      <mass value="2.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.02" iyy="0.02" izz="0.02" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_base.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_base.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_1.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_1.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_2.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_2.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_3.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_3.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_4.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>      
+    <collision>
+      <origin rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/a_servo_4.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base"/>
+    <child link="link1"/>
+    <origin xyz="0.1916 -0.5981 0.6072" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="1" velocity="1"/>
+    <dynamics damping="0.01" friction="0.1"/>
+  </joint>
+
+  <link name="link1">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servoarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servoarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_firstarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_firstarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_1.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_1.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_2.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_2.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_3.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_3.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_rod.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_rod.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1916 0.5981 -0.6072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_4.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.01916 0.05981 -0.06072" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/b_servo_4.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>        
+  </link>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="-0.299 -0.105 0.335" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.14159" upper="3.14159" effort="1" velocity="1"/>
+    <dynamics damping="0.01" friction="0.1"/>
+  </joint>
+
+  <link name="link2">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="0 0 0"/>
+      <inertia ixx="0.02" iyy="0.02" izz="0.02" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servoarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servoarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_secondarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_secondarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_1.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_1.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_2.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_2.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_3.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_3.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servoplate.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servoplate.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_rod.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_rod.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_4.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/c_servo_4.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="-0.014 -0.1042 0.96" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.14159" upper="3.14159" effort="1" velocity="1"/>
+    <dynamics damping="0.01" friction="0.1"/>
+  </joint>
+
+  <link name="link3">
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0.1074 0.7031 -0.9422" rpy="0 0 0"/>
+      <inertia ixx="0.02" iyy="0.02" izz="0.02" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.1214 0.8073 -1.9022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/d_servoarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1214 0.8073 -1.9022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/d_servoarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1214 0.8073 -1.9022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/d_thirdarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1214 0.8073 -1.9022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/d_thirdarm.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.1214 0.8073 -1.9022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/d_tippoint.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.1214 0.8073 -1.9022" rpy="1.5708 0 0"/>
+      <geometry>
+        <mesh filename="../../cad/all_files/d_tippoint.STL" scale="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
