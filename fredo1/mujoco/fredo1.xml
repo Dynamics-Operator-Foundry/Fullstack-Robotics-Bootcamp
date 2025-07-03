@@ -34,11 +34,16 @@
         
         <mesh name="arm3" file="d_thirdarm.STL" scale="0.001 0.001 0.001"/>
         <mesh name="tippoint" file="d_tippoint.STL" scale="0.001 0.001 0.001"/>
+
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0 0 0" rgb2="1 1 1" />
+        <material name="grid_mat" texture="grid" texrepeat="10 10" reflectance="0.2" />
     </asset>
     
     <worldbody>
 
         <geom name="origin_marker" type="sphere" size="0.01" rgba="1 0 0 1" pos="0 0 0"/>
+
+        <geom name="ground" type="plane" pos="0 0 -0.00918" size="2 2 0.1" material="grid_mat" xyaxes="1 0 0 0 1 0" />
 
         <geom name="x_axis" type="cylinder" fromto="0 0 0 0.05 0 0" size="0.002" rgba="1 0 0 1"/>
         <geom name="y_axis" type="cylinder" fromto="0 0 0 0 0.05 0" size="0.002" rgba="0 1 0 1"/>

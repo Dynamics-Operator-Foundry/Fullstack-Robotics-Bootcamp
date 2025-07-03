@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="fredo1">
+
+  <disable_self_collisions>false</disable_self_collisions>
+  
+  <!-- Load materials -->
+  <xacro:include filename="$(find fredo1_robot)/xacro/materials.xacro"/>
+
+  <!-- Load links -->
+  <xacro:include filename="$(find fredo1_robot)/xacro/links/base_link.xacro"/>
+  <xacro:include filename="$(find fredo1_robot)/xacro/links/link1.xacro"/>
+  <xacro:include filename="$(find fredo1_robot)/xacro/links/link2.xacro"/>
+  <xacro:include filename="$(find fredo1_robot)/xacro/links/link3.xacro"/>
+  <!-- <xacro:include filename="$(find fredo1_robot)/xacro/links/end_effector.xacro"/> -->
+
+  <!-- Load joints -->
+  <xacro:include filename="$(find fredo1_robot)/xacro/joints/joint0.xacro"/>
+  <xacro:include filename="$(find fredo1_robot)/xacro/joints/joint1.xacro"/>
+  <xacro:include filename="$(find fredo1_robot)/xacro/joints/joint2.xacro"/>
+  <xacro:include filename="$(find fredo1_robot)/xacro/joints/joint3.xacro"/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <!-- <robotNamespace>/fredo1</robotNamespace> -->
+    </plugin>
+  </gazebo>
+
+</robot>

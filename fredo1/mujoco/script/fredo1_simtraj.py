@@ -24,7 +24,8 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
     
     while viewer.is_running():
         t = time.time()
-        angles = [-1.57, -1.57, 0]
+        angles = [np.sin(t), np.cos(t), np.cos(t) * np.sin(t)]
+        t = t + 0.01
         set_joint_angles(data, angles)
 
         viewer.sync()

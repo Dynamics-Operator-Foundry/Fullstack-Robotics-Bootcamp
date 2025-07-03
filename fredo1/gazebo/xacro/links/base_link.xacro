@@ -102,7 +102,7 @@
   <!-- GAZEBO-specific Color -->
   <gazebo reference="base_link">
     <material>Gazebo/Gray</material>
-    <static>false</static>
+    <!-- <static>false</static> -->
   </gazebo>
 
 </robot>
