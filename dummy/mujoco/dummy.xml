@@ -1,4 +1,4 @@
-<mujoco model="fredo1">
+<mujoco model="dummy">
 
     <default>
         <!-- <geom type="mesh" xyaxes="1 0 0 0 0 1"/> -->
