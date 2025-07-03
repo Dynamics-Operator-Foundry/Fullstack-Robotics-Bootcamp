@@ -26,14 +26,27 @@ while True:
         # Your rotation logic here
         # print(deg)
         
-
-        rad = math.radians(deg)
+        deg = 0
+        rad = 0
         p.setJointMotorControl2(
             bodyUniqueId=robot_id,
-            jointIndex=joint_index,
-            controlMode=p.POSITION_CONTROL,
-            targetPosition=rad,
-            force=1.0
+            jointIndex=0,
+            controlMode=p.VELOCITY_CONTROL,
+            force=0.0
+        )
+        
+        p.setJointMotorControl2(
+            bodyUniqueId=robot_id,
+            jointIndex=1,
+            controlMode=p.VELOCITY_CONTROL,
+            force=0.0
+        )
+        
+        p.setJointMotorControl2(
+            bodyUniqueId=robot_id,
+            jointIndex=2,
+            controlMode=p.VELOCITY_CONTROL,
+            force=0.0
         )
         p.stepSimulation()
         time.sleep(0.02)
