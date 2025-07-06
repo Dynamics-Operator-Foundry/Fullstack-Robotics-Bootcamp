@@ -1,3 +1,6 @@
 [submodule "ros_utilities"]
 	path = ros_utilities
 	url = https://github.com/pattylo/ros_utilities
+[submodule "fredo1/fredo1_firmware"]
+	path = fredo1/fredo1_firmware
+	url = https://github.com/Dynamics-Learning-Workshop/fredo1_firmware
