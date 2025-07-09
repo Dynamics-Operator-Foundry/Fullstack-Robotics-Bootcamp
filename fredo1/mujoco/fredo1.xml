@@ -88,7 +88,7 @@
                         <geom mesh="servo2d"/>   
                         <body name="servoarm2" pos="0 0 0">
                             <geom mesh="servoarm2"/>   
-                            <joint name="joint_2" type="hinge" pos="-0.01074 -0.07031 0.09422" axis="1 0 0" limited="true" range="-85 90"/> 
+                            <joint name="joint_2" type="hinge" pos="-0.01074 -0.07031 0.09422" axis="1 0 0" limited="true" range="-90 90"/> 
                             <body name="arm2" pos="0 0 0">
                                 <geom mesh="arm2"/>   
                             </body>
@@ -113,7 +113,7 @@
                                 <geom mesh="servo3d"/>   
                                 <body name="servoarm3" pos="0 0 0">
                                     <geom mesh="servoarm3"/>   
-                                    <joint name="joint_3" type="hinge" pos="-0.01214 -0.08073 0.19022" axis="1 0 0" limited="true" range="-85 90"/> 
+                                    <joint name="joint_3" type="hinge" pos="-0.01214 -0.08073 0.19022" axis="1 0 0" limited="true" range="-90 90"/> 
                                     <body name="arm3" pos="0 0 0">
                                         <geom mesh="arm3"/>   
                                     </body>
