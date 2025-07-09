@@ -75,4 +75,4 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
         set_joint_angles(data, angles)
         viewer.sync()
         
-        time.sleep(0.1)  
+        time.sleep(0.01)  
