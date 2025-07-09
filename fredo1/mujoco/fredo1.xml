@@ -66,7 +66,7 @@
                 <geom mesh="servo1d"/>   
                 <body name="servoarm1" pos="0 0 0">
                     <geom mesh="servoarm1"/>   
-                    <joint name="joint_1" type="hinge" pos="0.01916 -0.05981 0.06072" axis="0 0 1" limited="true" range="-80 180"/> 
+                    <joint name="joint_1" type="hinge" pos="0.01916 -0.05981 0.06072" axis="0 0 1" limited="true" range="-200 20"/> 
                     <body name="arm1" pos="0 0 0">
                         <geom mesh="arm1"/>   
                     </body>
@@ -131,7 +131,7 @@
     </worldbody>
     
     <actuator>
-        <position name="joint_1" ctrllimited="true" kp="1" kv="0.15" joint="joint_1" ctrlrange="-1.57 3.14"/>
+        <position name="joint_1" ctrllimited="true" kp="1" kv="0.15" joint="joint_1" ctrlrange="-3.14 0"/>
         <position name="joint_2" ctrllimited="true" kp="1" kv="0.15" joint="joint_2" ctrlrange="-1.57 1.57"/>
         <position name="joint_3" ctrllimited="true" kp="1" kv="0.15" joint="joint_3" ctrlrange="-1.57 1.57"/>
         
