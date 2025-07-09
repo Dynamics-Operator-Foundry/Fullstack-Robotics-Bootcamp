@@ -2,6 +2,16 @@ import mujoco
 import mujoco.viewer
 import numpy as np
 import time
+import socket
+import struct
+
+PORT = 60003
+BUFFER_SIZE = 1024
+fmt = 'dddd'  # 4 doubles
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+sock.bind(('', PORT))  # bind to all interfaces
 
 # load model here
 model = mujoco.MjModel.from_xml_path("../fredo1.xml")
@@ -17,16 +27,23 @@ def set_joint_angles(data, angles, joint_names=["joint_1", "joint_2", "joint_3"]
 
 # viewer here
 with mujoco.viewer.launch_passive(model, data) as viewer:
-    viewer.cam.lookat[:] = np.array([0.04, 0, 0.06])     
+    viewer.cam.lookat[:] = np.array([0.04, -0.04, 0.08])     
     viewer.cam.distance = 0.64                       
-    viewer.cam.azimuth = 60                        
+    viewer.cam.azimuth = -40                        
     viewer.cam.elevation = -25                      
     
     while viewer.is_running():
-        t = time.time()
-        angles = [np.sin(t), np.cos(t), np.cos(t) * np.sin(t)]
-        t = t + 0.01
+        
+        data_lala, addr = sock.recvfrom(1024)  
+        if len(data_lala) == 32:      
+            timelala, joint1, joint2, joint3 = struct.unpack(fmt, data_lala)
+            print(f"Time: {timelala:.3f}, Joint1: {joint1:.3f}, Joint2: {joint2:.3f}, Joint3: {joint3:.3f}")
+        else:
+            print(f"Unexpected data size: {len(data_lala)} bytes")
+        
+        angles = [joint1 / 180 * np.pi, joint2 / 180 * np.pi, joint3 / 180 * np.pi]
+        
         set_joint_angles(data, angles)
-
         viewer.sync()
-        time.sleep(0.01)  
+        
+        time.sleep(0.001)  
