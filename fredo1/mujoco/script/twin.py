@@ -43,22 +43,11 @@ def twin():
             viewer.cam.azimuth = -40
             viewer.cam.elevation = -25
 
-            latest_data = None
-            while True:
-                ready = select.select([sock], [], [], 0)
-                if ready[0]:
-                    try:
-                        latest_data, _ = sock.recvfrom(1024)
-                    except BlockingIOError:
-                        break
-                else:
-                    break
-
             try:
                 while viewer.is_running():
                     got_data = False
                     while True:
-                        ready = select.select([sock], [], [], 0)
+                        ready = select.select([sock], [], [], 0.001)
                         if ready[0]:
                             got_data = True
                             try:
@@ -75,9 +64,9 @@ def twin():
                         timelala, joint1, joint2, joint3 = struct.unpack(fmt, data_lala)
                         print(f"Time: {timelala:.3f}, Joint1: {joint1:.3f}, Joint2: {joint2:.3f}, Joint3: {joint3:.3f}")
                         
-                        # Write to CSV
-                        csv_writer.writerow([timelala, joint1, joint2, joint3])
-                        csvfile.flush()  # Optional: ensures data is written immediately
+                        # csv recoding
+                        # csv_writer.writerow([timelala, joint1, joint2, joint3])
+                        # csvfile.flush()  # Optional: ensures data is written immediately
                         
                         angles = [joint1 / 180 * np.pi, joint2 / 180 * np.pi, joint3 / 180 * np.pi]
                         set_joint_angles(data, angles)
