@@ -4,7 +4,7 @@ import numpy as np
 import time
 
 # load model here
-model = mujoco.MjModel.from_xml_path("../fredo1.xml")
+model = mujoco.MjModel.from_xml_path("../dummy.xml")
 data = mujoco.MjData(model)
 
 # viz here
@@ -24,7 +24,7 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
     
     while viewer.is_running():
         t = time.time()
-        angles = [np.sin(t), np.cos(t), np.cos(t) * np.sin(t)]
+        angles = [np.sin(t), np.cos(t)]
         t = t + 0.01
         set_joint_angles(data, angles)
 
