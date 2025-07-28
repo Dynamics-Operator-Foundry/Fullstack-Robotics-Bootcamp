@@ -4,3 +4,6 @@
 [submodule "fredo1/fredo1_firmware"]
 	path = fredo1/fredo1_firmware
 	url = https://github.com/Dynamics-Learning-Workshop/fredo1_firmware
+[submodule "fredo2/fredo2_firmware"]
+	path = fredo2/fredo2_firmware
+	url = https://github.com/Dynamics-Operator-Foundry/fredo2_firmware
