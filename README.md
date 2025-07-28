@@ -61,3 +61,30 @@ Again, fundamentals in those aspects are grossly omitted; for those who have som
 - v-servo
 - FOC control
 - RL + DD
+
+## Specs
+- DoF: 3 (0~180 || >360)
+- Computer: Lattepanda Alpha M3-7Y30 w/ 8 Gb RAM + any ubuntu 20.04 laptop
+- Communication: UDP + serial tty
+- Motors: servo SG-5010 (mod), servo Xinhui-velo (mod), FOC
+- Material: Ledo6060 + PLA
+
+## Usage
+Within my implementation, this repo is cloned on my laptop, while [firmware1](./fredo1/fredo1_firmware/) & [firmware2](./fredo2/fredo2_firmware/) are on Lattepanda.
+
+For setting up & launching, please refer to the following:
+ - [Low-level Com](./fredo1/fredo1_firmware/) or [here](./fredo2/fredo2_firmware/)
+ - [ROS + Gazebo](./fredo1/gazebo/)
+ - [Mujoco](./fredo1/mujoco) or [here](./fredo2/mujoco/)
+ - [Bullet](./fredo1/bullet)
+
+## References
+```
+@misc{yasunori2024mujoco,
+  author       = {Yasunori},
+  title        = {MuJoCo model yourself},
+  year         = 2024,
+  note         = {\url{https://yasunori.jp/en/2024/07/13/mujoco-model-yourself.html} [Accessed: 28/Jul/2025]}
+}
+
+```
