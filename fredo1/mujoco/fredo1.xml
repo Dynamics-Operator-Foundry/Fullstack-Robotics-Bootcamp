@@ -50,6 +50,8 @@
         <geom name="z_axis" type="cylinder" fromto="0 0 0 0 0 0.05" size="0.002" rgba="0 0 1 1"/>
             
     	<body name="base">
+            <site name="ee_marker" size="0.01 0.01 0.01" rgba="1 0 0 1" type="sphere" />
+            
             <geom mesh="base"/>                            
             <body name="servo1a" pos="0 0 0">
                 <geom mesh="servo1a"/>   
@@ -144,4 +146,5 @@
         <exclude body1="servoarm1" body2="servo1a"/> 
         <exclude body1="servoarm1" body2="base"/>         
     </contact>
+
 </mujoco>
