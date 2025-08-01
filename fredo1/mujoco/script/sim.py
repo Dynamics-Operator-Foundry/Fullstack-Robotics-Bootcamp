@@ -47,10 +47,10 @@ def set_joint_angles(time, data, angles, csv_writer, csvfile, joint_names=["join
 
     r_e = kine.forward(q=np.array([angles[0], angles[1], angles[2]]))
     
-    data.site_xpos[ee_site_id] = r_e[:3]
+    data.site_xpos[ee_site_id] = r_e
     
     # csv recoding
-    csv_writer.writerow([time, angles[0], angles[1], angles[2], r_e[0], r_e[2], r_e[2]])
+    csv_writer.writerow([time, angles[0], angles[1], angles[2], r_e[0], r_e[1], r_e[2]])
     csvfile.flush() 
 
 def sim():
@@ -87,7 +87,7 @@ def sim():
                     
                     angles = [joint1 / 180 * np.pi, joint2 / 180 * np.pi, joint3 / 180 * np.pi]
                     # time, data, angles, csv_writer, csvfile, joint_names
-                    set_joint_angles(timelala, data, angles, csv_writer, csvfile)
+                    set_joint_angles(timelala, data, angles, csv_writer, csvfile) # in rad
                     viewer.sync()
                     time.sleep(0.01)
                 else:
