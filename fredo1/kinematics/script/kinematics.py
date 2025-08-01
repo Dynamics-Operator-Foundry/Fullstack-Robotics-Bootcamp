@@ -77,7 +77,7 @@ class kinematics(utils):
             translation=np.array([-0.0014, -0.01042, 0.096,])
         )                        
         
-        return TSE3_l1_2_I @ TSE3_l2_2_l1 @ TSE3_l3_2_l2 @ TSE3_l4_2_l3 @ np.array([0.02849, 0.00007, 0.0400, 1])
+        return TSE3_l1_2_I @ TSE3_l2_2_l1 @ TSE3_l3_2_l2 @ TSE3_l4_2_l3 @ np.array([0.02849, 0.00007, 0.1100, 1])
 
 kine = kinematics()
 
