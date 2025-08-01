@@ -155,7 +155,7 @@ def sim():
                     
                     angles = [joint1 / 180 * np.pi, joint2 / 180 * np.pi, joint3 / 180 * np.pi]
                     # time, data, angles, csv_writer, csvfile, joint_names
-                    set_joint_angles(time, data, angles, csv_writer, csvfile)
+                    set_joint_angles(timelala, data, angles, csv_writer, csvfile)
                     viewer.sync()
                     time.sleep(0.01)
                 else:
