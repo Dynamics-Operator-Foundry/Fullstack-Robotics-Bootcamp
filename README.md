@@ -24,7 +24,7 @@ Again, fundamentals in those aspects are grossly omitted; for those who have som
 1. 3D modelling: 
     - [fredo1](./fredo1/cad)
     - [fredo2](./fredo2/cad)
-2. Numerical Simulation
+2. Numerical Simulation Platforms
     - Gazebo + ROS1: 
       - [fredo1](./fredo1/gazebo) 
       - [dummy](./dummy/gazebo)
