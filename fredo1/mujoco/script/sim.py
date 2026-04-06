@@ -9,6 +9,7 @@ import csv
 import os
 from sympy import *
 import sys
+import cv2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../kinematics/script/')))
 print(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../kinematics/')))
 from kinematics import kinematics
@@ -77,16 +78,44 @@ def sim():
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(["time", "joint1_rad", "joint2_rad", "joint3_rad", "joint4_rad", "ee_x", "ee_y", "ee_z"])  # header
 
+        # Setup video recording
+        video_filename = "../log/walking_robot.mp4"
+        fps = 30
+        width, height = 1280, 720
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        video_writer = cv2.VideoWriter(video_filename, fourcc, fps, (width, height))
+        
+        # Create renderer for video (separate from viewer)
+        renderer = mujoco.Renderer(model, height=height, width=width)
+        
         with mujoco.viewer.launch_passive(model, data) as viewer:
+            # Set viewer camera
             viewer.cam.lookat[:] = np.array([0.0, 0.0, 0.1])     
             viewer.cam.distance = 0.8
             viewer.cam.azimuth = -90
             viewer.cam.elevation = -20
 
+            # Set recording camera (side view)
+            camera = mujoco.MjvCamera()
+            camera.lookat = np.array([0.0, 0.0, 0.08])
+            camera.distance = 0.6
+            camera.azimuth = 90
+            camera.elevation = -15
+
             start_time = time.time()
+            last_frame_capture = 0
+            frame_interval = 1.0 / fps  # 0.033s for 30fps
+            duration = 200  # 10 second recording
+            
+            # Get base body ID for tracking
+            base_body_id = model.body("base").id
             
             while viewer.is_running():
                 current_time = time.time() - start_time
+                
+                # Stop recording after duration
+                if current_time > duration:
+                    break
                 
                 # Generate walking gait using sine waves
                 target_angles = generate_walking_gait(current_time)
@@ -97,9 +126,27 @@ def sim():
                 # Step the physics simulation (this runs collision detection, gravity, etc.)
                 mujoco.mj_step(model, data)
                 
+                # Update camera to follow robot
+                base_pos = data.xpos[base_body_id]
+                viewer.cam.lookat[:] = base_pos
+                camera.lookat = base_pos.copy()
+                
+                # Capture video frame at target FPS
+                if current_time - last_frame_capture >= frame_interval:
+                    renderer.update_scene(data, camera)
+                    pixels = renderer.render()
+                    frame = cv2.cvtColor(pixels, cv2.COLOR_RGB2BGR)
+                    video_writer.write(frame)
+                    last_frame_capture = current_time
+                
                 # Sync viewer
                 viewer.sync()
                 time.sleep(0.01)  # 100 Hz update rate
+        
+        # Cleanup
+        video_writer.release()
+        renderer.close()
+        print(f"Video saved to {os.path.abspath(video_filename)}")
     
 
 if __name__ == "__main__":
