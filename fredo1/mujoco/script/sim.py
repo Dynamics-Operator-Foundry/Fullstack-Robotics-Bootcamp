@@ -22,9 +22,9 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(('', PORT))  # bind to all interfaces
 
-model = mujoco.MjModel.from_xml_path("../fredo1.xml")
+model = mujoco.MjModel.from_xml_path("./rockie/rockie.xml")
 data = mujoco.MjData(model)
-ee_site_id = model.site("ee_marker").id
+# ee_site_id = model.site("ee_marker").id
 
 
 sock.setblocking(False)
@@ -39,59 +39,67 @@ if os.path.exists(csv_filename):
 #     csv_writer = csv.writer(csvfile)
 #     csv_writer.writerow(["time", "joint1_deg", "joint2_deg", "joint3_deg", "ee_x", "ee_y", "ee_z"])  # header
 
-def set_joint_angles(time, data, angles, csv_writer, csvfile, joint_names=["joint_1", "joint_2", "joint_3"]):
-    for joint_name, angle in zip(joint_names, angles):
-        joint_id = model.joint(joint_name).qposadr
-        data.qpos[joint_id] = angle
-    mujoco.mj_forward(model, data)
+def set_joint_controls(time, data, target_angles, csv_writer, csvfile):
+    """Set actuator control signals instead of directly setting positions"""
+    # Set control signals for the 4 actuators
+    for i, angle in enumerate(target_angles):
+        data.ctrl[i] = angle
+    
+    # csv recording
+    csv_writer.writerow([time, target_angles[0], target_angles[1], target_angles[2], target_angles[3], 0, 0, 0])
+    csvfile.flush()
 
-    r_e = kine.forward(q=np.array([angles[0], angles[1], angles[2]]))
+def generate_walking_gait(t):
+    """Generate sine wave walking pattern for 4 joints (2 legs with hip and ankle each)"""
+    # frequency = 0.5  # Hz - very slow walking
+    # hip_amplitude = 0.3  # radians - minimal hip swing
+    # ankle_amplitude = 0.2  # radians - minimal ankle bend
+    # ankle_bias = -0.05  # very slight forward lean at ankles
     
-    data.site_xpos[ee_site_id] = r_e
     
-    # csv recoding
-    csv_writer.writerow([time, angles[0], angles[1], angles[2], r_e[0], r_e[1], r_e[2]])
-    csvfile.flush() 
+    frequency = 0.5
+    hip_amplitude = 0.25
+    ankle_amplitude = 0.25
+    ankle_bias = -0.10
+    
+    # Left leg (joint_1 = hip, joint_2 = ankle)
+    left_hip = hip_amplitude * np.sin(2 * np.pi * frequency * t)
+    left_ankle = ankle_bias + ankle_amplitude * np.sin(2 * np.pi * frequency * t + np.pi/6)
+    
+    # Right leg (joint_3 = hip, joint_4 = ankle) - opposite phase
+    right_hip = hip_amplitude * np.sin(2 * np.pi * frequency * t + np.pi)
+    right_ankle = ankle_bias + ankle_amplitude * np.sin(2 * np.pi * frequency * t + np.pi + np.pi/6)
+    
+    return [left_hip, left_ankle, right_hip, right_ankle] 
 
 def sim():
     with open(csv_filename, mode='w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(["time", "joint1_deg", "joint2_deg", "joint3_deg", "ee_x", "ee_y", "ee_z"])  # header
+        csv_writer.writerow(["time", "joint1_rad", "joint2_rad", "joint3_rad", "joint4_rad", "ee_x", "ee_y", "ee_z"])  # header
 
         with mujoco.viewer.launch_passive(model, data) as viewer:
-            viewer.cam.lookat[:] = np.array([0.04, -0.04, 0.08])     
-            viewer.cam.distance = 0.64
-            viewer.cam.azimuth = -40
-            viewer.cam.elevation = -25
+            viewer.cam.lookat[:] = np.array([0.0, 0.0, 0.1])     
+            viewer.cam.distance = 0.8
+            viewer.cam.azimuth = -90
+            viewer.cam.elevation = -20
 
+            start_time = time.time()
             
             while viewer.is_running():
-                got_data = False
-                while True:
-                    ready = select.select([sock], [], [], 0.001)
-                    if ready[0]:
-                        got_data = True
-                        try:
-                            data_lala, _ = sock.recvfrom(1024)
-                        except BlockingIOError:
-                            break
-                    else:
-                        break  
-
-                if not got_data:
-                    continue
-
-                if len(data_lala) == 32:      
-                    timelala, joint1, joint2, joint3 = struct.unpack(fmt, data_lala)
-                    print(f"Time: {timelala:.3f}, Joint1: {joint1:.3f}, Joint2: {joint2:.3f}, Joint3: {joint3:.3f}")                                                
-                    
-                    angles = [joint1 / 180 * np.pi, joint2 / 180 * np.pi, joint3 / 180 * np.pi]
-                    # time, data, angles, csv_writer, csvfile, joint_names
-                    set_joint_angles(timelala, data, angles, csv_writer, csvfile) # in rad
-                    viewer.sync()
-                    time.sleep(0.01)
-                else:
-                    print(f"Unexpected data size: {len(data_lala)} bytes")
+                current_time = time.time() - start_time
+                
+                # Generate walking gait using sine waves
+                target_angles = generate_walking_gait(current_time)
+                
+                # Set control signals (not direct positions)
+                set_joint_controls(current_time, data, target_angles, csv_writer, csvfile)
+                
+                # Step the physics simulation (this runs collision detection, gravity, etc.)
+                mujoco.mj_step(model, data)
+                
+                # Sync viewer
+                viewer.sync()
+                time.sleep(0.01)  # 100 Hz update rate
     
 
 if __name__ == "__main__":

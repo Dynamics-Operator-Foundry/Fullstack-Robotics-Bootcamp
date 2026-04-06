@@ -1,0 +1,108 @@
+<mujoco model="biped_geom">
+
+    <compiler angle="radian" coordinate="local"/>
+    <option gravity="0 0 -9.81" timestep="0.001"/>
+    
+    <visual>
+        <global offwidth="1280" offheight="720"/>
+    </visual>
+
+    <default>
+        <joint damping="10" armature="0.1"/>
+        <geom friction="1.5 0.1 0.1" density="2000" solref="0.01 1"/>
+    </default>
+
+    <worldbody>
+
+        <!-- FLOOR -->
+        <geom name="ground"
+              type="plane"
+              size="2 2 0.1"
+              pos="0 0 0"
+              rgba="0.8 0.8 0.8 1"/>
+
+        <!-- AXES -->
+        <geom type="cylinder" fromto="0 0 0 0.05 0 0" size="0.002" rgba="1 0 0 1"/>
+        <geom type="cylinder" fromto="0 0 0 0 0.05 0" size="0.002" rgba="0 1 0 1"/>
+        <geom type="cylinder" fromto="0 0 0 0 0 0.05" size="0.002" rgba="0 0 1 1"/>
+
+        <!-- BASE / TORSO (WIDER) -->
+        <body name="base" pos="0 0 0.13">
+            <freejoint/>
+            <geom type="box" size="0.04 0.06 0.02" rgba="0.6 0.6 0.6 1"/>
+
+            <!-- ===== LEFT LEG ===== -->
+            <!-- HIP MOTOR -->
+            <body name="left_hip_motor" pos="-0.01 0.04 -0.03">
+                <geom type="box" size="0.02 0.02 0.015" rgba="1 0 0 1"/>
+                <joint name="joint_1" type="hinge"
+                       axis="0 1 0"
+                       range="-0.5 0.5"/>
+
+                <!-- LEG -->
+                <body name="left_leg" pos="0 0 -0.05">
+                    <geom type="box"
+                          size="0.018 0.018 0.05"
+                          rgba="0 0 1 1"/>
+
+                    <!-- ANKLE MOTOR -->
+                    <body name="left_ankle_motor" pos="0 0 -0.05">
+                        <geom type="box" size="0.02 0.02 0.015" rgba="0 1 0 1"/>
+                        <joint name="joint_2" type="hinge"
+                               axis="0 1 0"
+                               range="-0.5 0.5"/>
+
+                        <!-- DUCK FOOT (long front, short back) -->
+                        <body name="left_foot" pos="0.015 0 -0.01">
+                            <geom type="box"
+                                  size="0.04 0.035 0.004"
+                                  friction="2 0.5 0.5"
+                                  rgba="0.8 0.4 0.2 1"/>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+            <!-- ===== RIGHT LEG ===== -->
+            <!-- HIP MOTOR -->
+            <body name="right_hip_motor" pos="-0.01 -0.04 -0.03">
+                <geom type="box" size="0.02 0.02 0.015" rgba="1 0 0 1"/>
+                <joint name="joint_3" type="hinge"
+                       axis="0 1 0"
+                       range="-0.5 0.5"/>
+
+                <!-- LEG -->
+                <body name="right_leg" pos="0 0 -0.05">
+                    <geom type="box"
+                          size="0.018 0.018 0.05"
+                          rgba="0 0 1 1"/>
+
+                    <!-- ANKLE MOTOR -->
+                    <body name="right_ankle_motor" pos="0 0 -0.05">
+                        <geom type="box" size="0.02 0.02 0.015" rgba="0 1 0 1"/>
+                        <joint name="joint_4" type="hinge"
+                               axis="0 1 0"
+                               range="-0.5 0.5"/>
+
+                        <!-- DUCK FOOT (long front, short back) -->
+                        <body name="right_foot" pos="0.015 0 -0.01">
+                            <geom type="box"
+                                  size="0.04 0.035 0.004"
+                                  friction="2 0.5 0.5"
+                                  rgba="0.8 0.4 0.2 1"/>
+                        </body>
+                    </body>
+                </body>
+            </body>
+
+        </body>
+    </worldbody>
+
+    <actuator>
+        <position joint="joint_1" kp="200" kv="20"/>
+        <position joint="joint_2" kp="200" kv="20"/>
+        <position joint="joint_3" kp="200" kv="20"/>
+        <position joint="joint_4" kp="200" kv="20"/>
+    </actuator>
+
+</mujoco>
